@@ -24,7 +24,7 @@ import {
   Highlight,
 } from "./../components/styles.js";
 
-const Login = () => {
+const Register = () => {
   const [loaded] = useFonts({
     Poppins_bold: require("./../assets/fonts/Poppins-Bold.ttf"),
     Poppins_medium: require("./../assets/fonts/Poppins-Medium.ttf"),
@@ -37,14 +37,23 @@ const Login = () => {
 
   return (
     <Body>
-      <Container>
-        <ScrollView>
+      <ScrollView>
+        <Container>
           <Header>
-            <Heading>Welcome,</Heading>
-            <Title>Sign in to continue!</Title>
+            <Heading style={{ fontSize: 30 }}>Create Account,</Heading>
+            <Title style={{ fontSize: 16 }}>
+              Please fill the form to continue.
+            </Title>
           </Header>
 
-          <FormWrapper style={{ marginTop: 60 }}>
+          <FormWrapper>
+            <InputWrapper
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <MyTextInput label="First Name" placeholder="First" />
+              <MyTextInput label="Last Name" placeholder="Last" />
+            </InputWrapper>
+
             <InputWrapper>
               <MyTextInput label="Email" placeholder="Enter your email" />
             </InputWrapper>
@@ -52,26 +61,32 @@ const Login = () => {
             <InputWrapper>
               <MyTextInput label="Password" placeholder="Password" />
             </InputWrapper>
-            <ForgetPasswordText>Forget Password?</ForgetPasswordText>
+
+            <InputWrapper>
+              <MyTextInput label="Confirm Password" placeholder="Password" />
+            </InputWrapper>
 
             <LoginBtn>
               <LoginText>Login</LoginText>
             </LoginBtn>
           </FormWrapper>
 
-          <Footer>
+          <Footer style={{ marginTop: 60 }}>
             <FooterMessage>Don't have a account?</FooterMessage>
             <FooterBtn>
               <Highlight>Sign-up</Highlight>
             </FooterBtn>
           </Footer>
-        </ScrollView>
-      </Container>
+        </Container>
+      </ScrollView>
       <StatusBar auto />
     </Body>
   );
 };
 
+// For form input
+// label = Name of form eg.: Name, Email, Password, etc.
+// props = TextInput props eg.: allowFontScaling, autoCapitalize, etc.
 const MyTextInput = ({ label, ...props }) => {
   return (
     <View>
@@ -82,4 +97,4 @@ const MyTextInput = ({ label, ...props }) => {
   );
 };
 
-export default Login;
+export default Register;
