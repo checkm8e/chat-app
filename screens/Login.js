@@ -2,7 +2,8 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Pressable } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
 
 import {
   Body,
@@ -38,6 +39,14 @@ const Login = () => {
   return (
     <Body>
       <Container>
+        <Pressable>
+          <Ionicons
+            name="arrow-back-circle-outline"
+            size={54}
+            color="#3e207c"
+          />
+        </Pressable>
+
         <ScrollView>
           <Header>
             <Heading>Welcome,</Heading>
@@ -55,7 +64,7 @@ const Login = () => {
             <ForgetPasswordText>Forget Password?</ForgetPasswordText>
 
             <LoginBtn>
-              <LoginText>Login</LoginText>
+              <LoginText>Sign in</LoginText>
             </LoginBtn>
           </FormWrapper>
 

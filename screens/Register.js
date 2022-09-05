@@ -2,7 +2,8 @@ import React from "react";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 
-import { View, ScrollView } from "react-native";
+import { View, ScrollView, Pressable } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
 
 import {
   Body,
@@ -15,7 +16,6 @@ import {
   InputText,
   InputForm,
   InputBorder,
-  ForgetPasswordText,
   LoginBtn,
   LoginText,
   Footer,
@@ -37,8 +37,15 @@ const Register = () => {
 
   return (
     <Body>
-      <ScrollView>
-        <Container>
+      <Container>
+        <Pressable>
+          <Ionicons
+            name="arrow-back-circle-outline"
+            size={54}
+            color="#3e207c"
+          />
+        </Pressable>
+        <ScrollView>
           <Header>
             <Heading style={{ fontSize: 30 }}>Create Account,</Heading>
             <Title style={{ fontSize: 16 }}>
@@ -67,18 +74,18 @@ const Register = () => {
             </InputWrapper>
 
             <LoginBtn>
-              <LoginText>Login</LoginText>
+              <LoginText>Sign up</LoginText>
             </LoginBtn>
           </FormWrapper>
 
           <Footer style={{ marginTop: 60 }}>
-            <FooterMessage>Don't have a account?</FooterMessage>
+            <FooterMessage>Already have a account?</FooterMessage>
             <FooterBtn>
-              <Highlight>Sign-up</Highlight>
+              <Highlight>Sign-in</Highlight>
             </FooterBtn>
           </Footer>
-        </Container>
-      </ScrollView>
+        </ScrollView>
+      </Container>
       <StatusBar auto />
     </Body>
   );
