@@ -1,11 +1,24 @@
+// Code:
+// contains styles for Login.js and Register.js
+
+// All imports
 import styled from "styled-components";
 import Constants from "expo-constants";
 
+// All variables
 const statusBarHeight = Constants.statusBarHeight;
+const Colors = {
+  primary: "#3e207c",
+  secondary: "#845ec2",
+  ternary: "#fcf8ff",
+};
 
+const { primary, secondary, ternary } = Colors;
+
+// Styles starts here
 // Main Body
 export const Body = styled.View`
-  background-color: #fcf8ff;
+  background-color: ${ternary};
   height: 100%;
 `;
 
@@ -24,7 +37,7 @@ export const Header = styled.View`
 export const Heading = styled.Text`
   font-size: 34px;
   font-family: "Poppins_bold";
-  color: #3e207c;
+  color: ${primary};
 `;
 
 export const Title = styled.Text`
@@ -46,7 +59,7 @@ export const InputWrapper = styled.View`
 export const InputText = styled.Text`
   font-family: "Poppins_medium";
   font-size: 18px;
-  color: #3e207c;
+  color: ${primary};
 `;
 
 export const InputForm = styled.TextInput`
@@ -59,7 +72,7 @@ export const InputForm = styled.TextInput`
 `;
 
 export const InputBorder = styled.Text`
-  background-color: #3e207c;
+  background-color: ${primary};
   position: relative;
   height: 1.5px;
   top: 10px;
@@ -68,12 +81,12 @@ export const InputBorder = styled.Text`
 
 export const ForgetPasswordText = styled.Text`
   font-size: 16px;
-  color: #845ec2;
+  color: ${secondary};
   text-align: right;
 `;
 
 export const LoginBtn = styled.Pressable`
-  background-color: #3e207c;
+  background-color: ${primary};
   width: 100%;
   height: 60px;
   margin-top: 50px;
@@ -109,5 +122,5 @@ export const FooterBtn = styled.Pressable`
 export const Highlight = styled.Text`
   font-family: "Poppins_regular";
   font-size: 16px;
-  color: #845ec2;
+  color: ${secondary};
 `;
