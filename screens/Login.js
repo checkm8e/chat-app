@@ -17,8 +17,8 @@ import {
   InputForm,
   InputBorder,
   ForgetPasswordText,
-  LoginBtn,
-  LoginText,
+  Btn,
+  BtnText,
   Footer,
   FooterMessage,
   FooterBtn,
@@ -63,9 +63,9 @@ const Login = () => {
             </InputWrapper>
             <ForgetPasswordText>Forget Password?</ForgetPasswordText>
 
-            <LoginBtn>
-              <LoginText>Sign in</LoginText>
-            </LoginBtn>
+            <Btn>
+              <BtnText>Sign in</BtnText>
+            </Btn>
           </FormWrapper>
 
           <Footer>

@@ -85,7 +85,7 @@ export const ForgetPasswordText = styled.Text`
   text-align: right;
 `;
 
-export const LoginBtn = styled.Pressable`
+export const Btn = styled.Pressable`
   background-color: ${primary};
   width: 100%;
   height: 60px;
@@ -93,7 +93,7 @@ export const LoginBtn = styled.Pressable`
   border-radius: 25px;
 `;
 
-export const LoginText = styled.Text`
+export const BtnText = styled.Text`
   color: #fff;
   font-family: "Poppins_bold";
   font-size: 24px;

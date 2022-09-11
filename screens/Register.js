@@ -16,8 +16,8 @@ import {
   InputText,
   InputForm,
   InputBorder,
-  LoginBtn,
-  LoginText,
+  Btn,
+  BtnText,
   Footer,
   FooterMessage,
   FooterBtn,
@@ -73,9 +73,9 @@ const Register = () => {
               <MyTextInput label="Confirm Password" placeholder="Password" />
             </InputWrapper>
 
-            <LoginBtn>
-              <LoginText>Sign up</LoginText>
-            </LoginBtn>
+            <Btn>
+              <BtnText>Sign up</BtnText>
+            </Btn>
           </FormWrapper>
 
           <Footer style={{ marginTop: 60 }}>

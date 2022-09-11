@@ -8,9 +8,11 @@ import {
   Header,
   Heading,
   Title,
+  Btn,
+  BtnText,
 } from "./../components/styles.js";
 
-const Home = () => {
+const Welcome = () => {
   const [loaded] = useFonts({
     Poppins_bold: require("./../assets/fonts/Poppins-Bold.ttf"),
     Poppins_medium: require("./../assets/fonts/Poppins-Medium.ttf"),
@@ -24,14 +26,22 @@ const Home = () => {
   return (
     <Body>
       <Container>
-        <Header>
-          <Heading>After login - -</Heading>
-          <Title>Main page</Title>
+        <Header style={{ alignItems: "center" }}>
+          <Heading style={{ marginBottom: 10 }}>ChatApp</Heading>
+          <Title>A simple, secure easy to use</Title>
+          <Title style={{ top: -30 }}>Messaging App</Title>
         </Header>
+
+        <Btn>
+          <BtnText>Sign up</BtnText>
+        </Btn>
+        <Btn>
+          <BtnText>Sign in</BtnText>
+        </Btn>
       </Container>
       <StatusBar auto />
     </Body>
   );
 };
 
-export default Home;
+export default Welcome;
