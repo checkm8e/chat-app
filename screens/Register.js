@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
+import { Formik } from "formik";
 
 import { View, ScrollView, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
@@ -22,9 +23,12 @@ import {
   FooterMessage,
   FooterBtn,
   Highlight,
+  RightIcon,
 } from "./../components/styles.js";
 
 const Register = () => {
+  const [hidePassword, setHidePassword] = useState(true);
+
   const [loaded] = useFonts({
     Poppins_bold: require("./../assets/fonts/Poppins-Bold.ttf"),
     Poppins_medium: require("./../assets/fonts/Poppins-Medium.ttf"),
@@ -53,30 +57,85 @@ const Register = () => {
             </Title>
           </Header>
 
-          <FormWrapper>
-            <InputWrapper
-              style={{ flexDirection: "row", justifyContent: "space-between" }}
-            >
-              <MyTextInput label="First Name" placeholder="First" />
-              <MyTextInput label="Last Name" placeholder="Last" />
-            </InputWrapper>
+          <Formik
+            initialValues={{
+              firstName: "",
+              lastName: "",
+              email: "",
+              password: "",
+              confirmPassword: "",
+            }}
+            onSubmit={(values) => console.log(values)}
+          >
+            {({ handleChange, handleBlur, handleSubmit, values }) => (
+              <FormWrapper>
+                <InputWrapper
+                  style={{
+                    flexDirection: "row",
+                    justifyContent: "space-between",
+                  }}
+                >
+                  <MyTextInput
+                    label="First Name"
+                    placeholder="First"
+                    onChangeText={handleChange("firstName")}
+                    onBlur={handleBlur("firstName")}
+                    value={values.firstName}
+                  />
+                  <MyTextInput
+                    label="Last Name"
+                    placeholder="Last"
+                    onChangeText={handleChange("lastName")}
+                    onBlur={handleBlur("lastName")}
+                    value={values.lastName}
+                  />
+                </InputWrapper>
 
-            <InputWrapper>
-              <MyTextInput label="Email" placeholder="Enter your email" />
-            </InputWrapper>
+                <InputWrapper>
+                  <MyTextInput
+                    label="Email"
+                    placeholder="Enter your email"
+                    onChangeText={handleChange("email")}
+                    onBlur={handleBlur("email")}
+                    value={values.email}
+                    keyboardType="email-address"
+                  />
+                </InputWrapper>
 
-            <InputWrapper>
-              <MyTextInput label="Password" placeholder="Password" />
-            </InputWrapper>
+                <InputWrapper>
+                  <MyTextInput
+                    label="Password"
+                    placeholder="Password"
+                    onChangeText={handleChange("password")}
+                    onBlur={handleBlur("password")}
+                    value={values.password}
+                    secureTextEntry={hidePassword}
+                    isPassword={true}
+                    hidePassword={hidePassword}
+                    setHidePassword={setHidePassword}
+                  />
+                </InputWrapper>
 
-            <InputWrapper>
-              <MyTextInput label="Confirm Password" placeholder="Password" />
-            </InputWrapper>
+                <InputWrapper>
+                  <MyTextInput
+                    label="Confirm Password"
+                    placeholder="Password"
+                    onChangeText={handleChange("confirmPassword")}
+                    onBlur={handleBlur("confirmPassword")}
+                    value={values.confirmPassword}
+                    secureTextEntry={hidePassword}
+                    isPassword={true}
+                    hidePassword={hidePassword}
+                    setHidePassword={setHidePassword}
+                  />
+                </InputWrapper>
 
-            <Btn>
-              <BtnText>Sign up</BtnText>
-            </Btn>
-          </FormWrapper>
+                <Btn onPress={handleSubmit}>
+                  <BtnText>Sign up</BtnText>
+                </Btn>
+              </FormWrapper>
+            )}
+          </Formik>
 
           <Footer style={{ marginTop: 60 }}>
             <FooterMessage>Already have a account?</FooterMessage>
@@ -94,11 +153,26 @@ const Register = () => {
 // For form input
 // label = Name of form eg.: Name, Email, Password, etc.
 // props = TextInput props eg.: allowFontScaling, autoCapitalize, etc.
-const MyTextInput = ({ label, ...props }) => {
+const MyTextInput = ({
+  label,
+  isPassword,
+  hidePassword,
+  setHidePassword,
+  ...props
+}) => {
   return (
     <View>
       <InputText>{label}</InputText>
       <InputForm {...props} />
+      {isPassword && (
+        <RightIcon onPress={() => setHidePassword(!hidePassword)}>
+          <Ionicons
+            name={hidePassword ? "eye-off-outline" : "eye-outline"}
+            size={30}
+            color="#3e207c"
+          />
+        </RightIcon>
+      )}
       <InputBorder />
     </View>
   );
