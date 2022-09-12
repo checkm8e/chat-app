@@ -4,7 +4,7 @@ import Welcome from "./screens/Welcome";
 import Home from "./screens/Home";
 
 export default function App() {
-  //return <Login />;
+  return <Login />;
   // return <Welcome />;
-  return <Home />;
+  // return <Home />;
 }

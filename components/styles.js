@@ -71,6 +71,13 @@ export const InputForm = styled.TextInput`
   width: 100%;
 `;
 
+export const RightIcon = styled.Pressable`
+  right: 5px;
+  top: 36px;
+  position: absolute;
+  z-index: 1;
+`;
+
 export const InputBorder = styled.Text`
   background-color: ${primary};
   position: relative;
