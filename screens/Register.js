@@ -26,7 +26,7 @@ import {
   RightIcon,
 } from "./../components/styles.js";
 
-const Register = () => {
+const Register = ({navigation}) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const [loaded] = useFonts({
@@ -42,7 +42,7 @@ const Register = () => {
   return (
     <Body>
       <Container>
-        <Pressable>
+        <Pressable onPress={() => navigation.goBack()}>
           <Ionicons
             name="arrow-back-circle-outline"
             size={54}
