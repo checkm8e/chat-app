@@ -27,7 +27,7 @@ import {
   RightIcon,
 } from "./../components/styles.js";
 
-const Login = ({navigation}) => {
+const Login = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const [loaded] = useFonts({
@@ -97,7 +97,9 @@ const Login = ({navigation}) => {
           <Footer>
             <FooterMessage>Don't have a account?</FooterMessage>
             <FooterBtn>
-              <Highlight>Sign-up</Highlight>
+              <Pressable onPress={() => navigation.navigate("Register Screen")}>
+                <Highlight>Sign-up</Highlight>
+              </Pressable>
             </FooterBtn>
           </Footer>
         </ScrollView>
