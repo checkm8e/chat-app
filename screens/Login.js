@@ -6,6 +6,21 @@ import { Formik } from "formik";
 import { View, ScrollView, Pressable } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
 
+// For form validation
+import * as Yup from "yup";
+
+validationSchema = Yup.object({
+  email: Yup.string().email("*Invalid email!").required("*Email is required!"),
+  password: Yup.string()
+    .trim()
+    .min(8, "*Password is too sort!")
+    .required("*Password is required!"),
+  confirmPassword: Yup.string().equals(
+    [Yup.ref("password"), null],
+    "*Password does not match!"
+  ),
+});
+
 import {
   Body,
   Container,

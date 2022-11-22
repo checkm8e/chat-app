@@ -11,9 +11,10 @@ const Colors = {
   primary: "#3e207c",
   secondary: "#845ec2",
   ternary: "#fcf8ff",
+  error: "#D65DB1",
 };
 
-const { primary, secondary, ternary } = Colors;
+const { primary, secondary, ternary, error } = Colors;
 
 // Styles starts here
 // Main Body
@@ -60,6 +61,13 @@ export const InputText = styled.Text`
   font-family: "Poppins_medium";
   font-size: 18px;
   color: ${primary};
+`;
+
+export const ErrorText = styled.Text`
+  font-family: "Poppins_regular";
+  font-size: 14px;
+  top: 14px;
+  color: ${error};
 `;
 
 export const InputForm = styled.TextInput`

@@ -6,6 +6,21 @@ import { Formik } from "formik";
 import { View, ScrollView, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
+// For form validation
+import * as Yup from "yup";
+
+validationSchema = Yup.object({
+  email: Yup.string().email("*Invalid email!").required("*Email is required!"),
+  password: Yup.string()
+    .trim()
+    .min(8, "*Password is too sort!")
+    .required("*Password is required!"),
+  confirmPassword: Yup.string().equals(
+    [Yup.ref("password"), null],
+    "*Password does not match!"
+  ),
+});
+
 import {
   Body,
   Container,
@@ -15,6 +30,7 @@ import {
   FormWrapper,
   InputWrapper,
   InputText,
+  ErrorText,
   InputForm,
   InputBorder,
   Btn,
@@ -65,9 +81,17 @@ const Register = () => {
               password: "",
               confirmPassword: "",
             }}
+            validationSchema={validationSchema}
             onSubmit={(values) => console.log(values)}
           >
-            {({ handleChange, handleBlur, handleSubmit, values }) => (
+            {({
+              handleChange,
+              handleBlur,
+              handleSubmit,
+              errors,
+              touched,
+              values,
+            }) => (
               <FormWrapper>
                 <InputWrapper
                   style={{
@@ -98,6 +122,7 @@ const Register = () => {
                     onChangeText={handleChange("email")}
                     onBlur={handleBlur("email")}
                     value={values.email}
+                    error={touched.email && errors.email}
                     keyboardType="email-address"
                   />
                 </InputWrapper>
@@ -109,6 +134,7 @@ const Register = () => {
                     onChangeText={handleChange("password")}
                     onBlur={handleBlur("password")}
                     value={values.password}
+                    error={touched.password && errors.password}
                     secureTextEntry={hidePassword}
                     isPassword={true}
                     hidePassword={hidePassword}
@@ -123,6 +149,7 @@ const Register = () => {
                     onChangeText={handleChange("confirmPassword")}
                     onBlur={handleBlur("confirmPassword")}
                     value={values.confirmPassword}
+                    error={touched.confirmPassword && errors.confirmPassword}
                     secureTextEntry={hidePassword}
                     isPassword={true}
                     hidePassword={hidePassword}
@@ -155,6 +182,7 @@ const Register = () => {
 // props = TextInput props eg.: allowFontScaling, autoCapitalize, etc.
 const MyTextInput = ({
   label,
+  error,
   isPassword,
   hidePassword,
   setHidePassword,
@@ -174,6 +202,7 @@ const MyTextInput = ({
         </RightIcon>
       )}
       <InputBorder />
+      {error ? <ErrorText>{error}</ErrorText> : null}
     </View>
   );
 };
