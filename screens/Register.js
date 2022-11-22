@@ -3,7 +3,7 @@ import { StatusBar } from "expo-status-bar";
 import { useFonts } from "expo-font";
 import { Formik } from "formik";
 
-import { View, ScrollView, Pressable } from "react-native";
+import { View, StyleSheet, ScrollView, Pressable } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import {
@@ -179,3 +179,11 @@ const MyTextInput = ({
 };
 
 export default Register;
+
+// const styles = StyleSheet.create({
+//   backButton: {
+//     paddingRight: 290
+//   }
+  
+// });
+
