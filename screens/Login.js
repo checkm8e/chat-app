@@ -36,7 +36,7 @@ import {
   RightIcon,
 } from "./../components/styles.js";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const [loaded] = useFonts({
@@ -52,7 +52,7 @@ const Login = () => {
   return (
     <Body>
       <Container>
-        <Pressable>
+        <Pressable onPress={() => navigation.goBack()}>
           <Ionicons
             name="arrow-back-circle-outline"
             size={54}
@@ -116,7 +116,9 @@ const Login = () => {
           <Footer>
             <FooterMessage>Don't have a account?</FooterMessage>
             <FooterBtn>
-              <Highlight>Sign-up</Highlight>
+              <Pressable onPress={() => navigation.navigate("Register Screen")}>
+                <Highlight>Sign-up</Highlight>
+              </Pressable>
             </FooterBtn>
           </Footer>
         </ScrollView>

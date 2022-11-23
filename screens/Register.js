@@ -42,7 +42,7 @@ import {
   RightIcon,
 } from "./../components/styles.js";
 
-const Register = () => {
+const Register = ({ navigation }) => {
   const [hidePassword, setHidePassword] = useState(true);
 
   const [loaded] = useFonts({
@@ -58,7 +58,7 @@ const Register = () => {
   return (
     <Body>
       <Container>
-        <Pressable>
+        <Pressable onPress={() => navigation.goBack()}>
           <Ionicons
             name="arrow-back-circle-outline"
             size={54}
@@ -167,7 +167,9 @@ const Register = () => {
           <Footer style={{ marginTop: 60 }}>
             <FooterMessage>Already have a account?</FooterMessage>
             <FooterBtn>
-              <Highlight>Sign-in</Highlight>
+              <Pressable onPress={() => navigation.navigate("Login Screen")}>
+                <Highlight>Sign-in</Highlight>
+              </Pressable>
             </FooterBtn>
           </Footer>
         </ScrollView>

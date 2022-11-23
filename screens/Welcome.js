@@ -12,7 +12,7 @@ import {
   BtnText,
 } from "./../components/styles.js";
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   const [loaded] = useFonts({
     Poppins_bold: require("./../assets/fonts/Poppins-Bold.ttf"),
     Poppins_medium: require("./../assets/fonts/Poppins-Medium.ttf"),
@@ -32,10 +32,10 @@ const Welcome = () => {
           <Title style={{ top: -30 }}>Messaging App</Title>
         </Header>
 
-        <Btn>
+        <Btn onPress={() => navigation.navigate("Register Screen")}>
           <BtnText>Sign up</BtnText>
         </Btn>
-        <Btn>
+        <Btn onPress={() => navigation.navigate("Login Screen")}>
           <BtnText>Sign in</BtnText>
         </Btn>
       </Container>
