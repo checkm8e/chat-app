@@ -68,7 +68,11 @@ const Login = ({ navigation }) => {
           <Formik
             initialValues={{ email: "", password: "" }}
             validationSchema={validationSchema}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => {
+              console.log(values);
+              navigation.navigate("Home Screen");
+              
+            }}
           >
             {({
               handleChange,

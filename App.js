@@ -30,6 +30,11 @@ export default function App() {
           component={Login}
           options={{ headerShown: false }}
         />
+        <Stack.Screen
+          name="Home Screen"
+          component={Home}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

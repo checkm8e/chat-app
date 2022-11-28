@@ -82,7 +82,10 @@ const Register = ({ navigation }) => {
               confirmPassword: "",
             }}
             validationSchema={validationSchema}
-            onSubmit={(values) => console.log(values)}
+            onSubmit={(values) => {
+              console.log(values);
+              navigation.navigate("Login Screen");
+            }}
           >
             {({
               handleChange,
