@@ -8,9 +8,12 @@ import {
   Header,
   Heading,
   Title,
+  Btn,
+  BtnText,
+  Footer,
 } from "./../components/styles.js";
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [loaded] = useFonts({
     Poppins_bold: require("./../assets/fonts/Poppins-Bold.ttf"),
     Poppins_medium: require("./../assets/fonts/Poppins-Medium.ttf"),
@@ -25,9 +28,15 @@ const Home = () => {
     <Body>
       <Container>
         <Header>
-          <Heading>After login - -</Heading>
-          <Title>Main page</Title>
+          <Heading>Main Chatting app - -</Heading>
+          <Title>Work under progress...</Title>
         </Header>
+
+        <Footer>
+          <Btn onPress={() => navigation.navigate("Login Screen")}>
+            <BtnText>Logout</BtnText>
+          </Btn>
+        </Footer>
       </Container>
       <StatusBar auto />
     </Body>
